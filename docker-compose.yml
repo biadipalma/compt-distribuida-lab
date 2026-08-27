@@ -1,0 +1,31 @@
+services:
+  master:
+    build: .
+    container_name: master
+    hostname: master
+    networks:
+      - mpi_net
+
+  worker1:
+    build: .
+    container_name: worker1
+    hostname: worker1
+    networks:
+      - mpi_net
+
+  worker2:
+    build: .
+    container_name: worker2
+    hostname: worker2
+    networks:
+      - mpi_net
+
+  worker3:
+    build: .
+    container_name: worker3
+    hostname: worker3
+    networks:
+      - mpi_net
+
+networks:
+  mpi_net:

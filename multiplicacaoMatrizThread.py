@@ -2,7 +2,7 @@ import threading
 import random
 import time
 
-N = 300
+N = 1000
 THREADS = 4
 
 # Inicialização das matrizes

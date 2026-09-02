@@ -1,7 +1,7 @@
 import random
 import time
 
-N = 300
+N = 1000
 A = [[random.random() for _ in range(N)] for _ in range(N)]
 B = [[random.random() for _ in range(N)] for _ in range(N)]
 C = [[0] * N for _ in range(N)]

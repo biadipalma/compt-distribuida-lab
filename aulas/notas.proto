@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package gerencia_notas;
+
+// Estrutura para uma nota individual
+message Nota {
+    string ra = 1;
+    string cod_disciplina = 2;
+    int32 ano = 3;
+    int32 semestre = 4;
+    float nota = 5;
+}
+
+// Resposta para operações de consulta de uma única nota
+message ConsultaNotaResponse {
+    bool sucesso = 1;
+    Nota nota = 2;
+    string msg_erro = 3;
+}
+
+// Requisição para adicionar ou consultar uma nota
+message AlunoDisciplinaRequest {
+    string ra = 1;
+    string cod_disciplina = 2;
+}
+
+// Requisição para adicionar uma nota completa
+message AdicionaNotaRequest {
+    string ra = 1;
+    string cod_disciplina = 2;
+    int32 ano = 3;
+    int32 semestre = 4;
+    float nota = 5;
+}
+
+// Resposta genérica de status (sucesso/falha)
+message StatusResponse {
+    bool sucesso = 1;
+    string msg = 2;
+}
+
+// Requisição para calcular média, identificando apenas o aluno
+message AlunoRequest {
+    string ra = 1;
+}
+
+// Resposta com o valor da média
+message MediaResponse {
+    bool sucesso = 1;
+    float media = 2;
+    string msg_erro = 3;
+}
+
+// Definição do serviço
+service GerenciadorNotas {
+    // RPCs Unários (requisição/resposta simples)
+    rpc AdicionarNota(AdicionaNotaRequest) returns (StatusResponse) {}
+    rpc AlterarNota(AdicionaNotaRequest) returns (StatusResponse) {}
+    rpc ConsultarNota(AlunoDisciplinaRequest) returns (ConsultaNotaResponse) {}
+    rpc CalcularMedia(AlunoRequest) returns (MediaResponse) {}
+
+    // ***** RPC Desafio *****
+    // Server Streaming: cliente pede as notas de um aluno, servidor envia um stream de notas
+    rpc ListarNotasAluno(AlunoRequest) returns (stream Nota) {}
+}

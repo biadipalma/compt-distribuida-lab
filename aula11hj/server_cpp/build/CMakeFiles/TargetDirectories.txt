@@ -1,0 +1,3 @@
+/workspaces/compt-distribuida-lab/aula11hj/server_cpp/build/CMakeFiles/server.dir
+/workspaces/compt-distribuida-lab/aula11hj/server_cpp/build/CMakeFiles/edit_cache.dir
+/workspaces/compt-distribuida-lab/aula11hj/server_cpp/build/CMakeFiles/rebuild_cache.dir

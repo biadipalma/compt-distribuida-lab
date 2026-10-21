@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--copy-dt-needed-entries CMakeFiles/server.dir/server.cc.o CMakeFiles/server.dir/file_processor.pb.cc.o CMakeFiles/server.dir/file_processor.grpc.pb.cc.o -o server  -lgrpc++ -lgrpc -lgpr -labsl_synchronization -lprotobuf 

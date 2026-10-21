@@ -1,0 +1,22 @@
+services:
+  servidor-grpc:
+    build:
+      context: .
+      dockerfile: server_cpp/Dockerfile
+    ports:
+      - "50051:50051"
+    volumes:
+      - .:/workspace
+    command: sleep infinity
+
+  cliente-python:
+    build:
+      context: .
+      dockerfile: client_python/Dockerfile
+    volumes:
+      - .:/workspace
+    depends_on:
+      - servidor-grpc
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: sleep infinity
